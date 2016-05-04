@@ -1,0 +1,11 @@
+#Main-nav {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    min-height: 100%;
+    margin-top: 60px;
+}
+
+.collapse-nav {
+    padding-left: 0px;
+}

@@ -1,0 +1,19 @@
+<template name="MainNav">
+    {{#if is_team_selected}}
+        <div id="Main-nav" class="nav side-nav fixed container" style="margin-left: 10px">
+            {{> TeamNavList}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="TeamNavList">
+    <ul class="nav nav-pills nav-stacked">
+            <li id="__Manage" class="{{is_active_collapse }}"><a>Manage Teams</a></li>
+        {{#each get_teams}}
+            <li id="{{name}}" class="collapse-nav {{is_active_collapse name}}"><a style="padding-left: 30px">{{name}}</a></li>
+        {{/each}}
+        {{#if isCreatingNewTeam}}
+            <li id="__Create" class="{{is_active_collapse '__Create'}}"><a>New Team</a></li>
+        {{/if}}
+    </ul>
+</template>

@@ -1,0 +1,20 @@
+<template name="UserTabs">
+    <div>
+        <ul id="user_tabs_holder" class="nav nav-tabs">
+            <li class="user_tabs_tab {{is_active 'Tasks'}}" style="margin-left: 30px"><a>Tasks</a></li>
+            <li class="user_tabs_tab {{is_active 'Teams'}}"><a>Teams</a></li>
+
+            <div class="pull-right">
+                <div id="Create" class="btn btn-default round-button inline">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    {{#if is_team_tab}}
+                        Create Team
+                    {{else}}
+                        Create Task
+                    {{/if}}
+                </div>
+                {{> atNavButton}}
+            </div>
+        </ul>
+    </div>
+</template>

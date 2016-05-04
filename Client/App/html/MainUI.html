@@ -1,0 +1,15 @@
+<template name="MainUI">
+    {{> UserTabs}}
+    {{#if isCreatingNewTask}}
+        {{> TaskCreator}}
+    {{else}}
+        {{> MainNav}}
+        <div class="container-fluid" style="margin-left:{{get_margin}}px; margin-top: 15px;">
+            {{#if isCreatingNewTeam}}
+                 {{> TeamCreator}}
+            {{else}}
+                {{> Management}}
+            {{/if}}
+        </div>
+    {{/if}}
+</template>

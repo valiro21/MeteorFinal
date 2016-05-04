@@ -1,0 +1,22 @@
+<template name="Management">
+    {{#if not_management_selected}}
+        {{> TaskSorter}}
+        <div style="margin-top: 30px">
+            {{#each get_tasks}}
+                {{> Task this}}
+            {{/each}}
+        </div>
+    {{else}}
+    {{/if}}
+
+</template>
+
+<template name="TaskSorter">
+    <div class="btn-group" style="margin-left: {{get_margin}}px;">
+        <button id="All" class="btn btn-default">All</button>
+        <button id="Started" class="btn btn-primary">Started</button>
+        <button id="Finished" class="btn btn-success">Finished</button>
+        <button id="Closed" class="btn btn-info">Closed</button>
+        <button id="Failed" class="btn btn-danger">Failed</button>
+    </div>
+</template>

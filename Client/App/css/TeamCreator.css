@@ -1,0 +1,13 @@
+#user_picker_users_holder
+{
+    overflow:hidden;
+    overflow-y:scroll;
+}
+
+.user {
+    cursor: pointer;
+}
+
+.user::hover {
+    cursor: pointer;
+}

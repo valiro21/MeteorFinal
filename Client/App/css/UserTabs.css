@@ -1,0 +1,35 @@
+#user_tabs_holder {
+}
+
+.user_tabs_tab {
+    margin-left:5px;
+    margin-right:5px;
+}
+
+#Overview {
+    margin-left: 15px;
+}
+
+#UserNavbar {
+    display: inline-block;
+}
+
+.user_buttons {
+    display: inline-block;
+    float:right;
+}
+
+#CreateTeam {
+    heighth: 40px;
+    padding: 5px;
+    margin-right: 10px;
+}
+.tab-title {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
+
+.tab-title:hover {
+    cursor:pointer;
+}

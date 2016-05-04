@@ -1,0 +1,17 @@
+<template name="Task">
+    <div class="panel {{get_task_panel_type this}} task-panel">
+        <div class="panel-heading">{{title}}</div>
+        <div class="panel-body">{{description}}</div>
+        <div class="panel-footer">
+        {{#if closed}}
+            {{CompletedDescription}}
+        {{else}}
+            {{#if finished}}
+                <button class="btn-info">Close</button>
+            {{else}}
+                <button class="btn-success">Finish!</button>
+            {{/if}}
+        {{/if}}
+        </div>
+    </div>
+</template>
