@@ -1,15 +1,18 @@
 <template name="Task">
     <div class="panel {{get_task_panel_type this}} task-panel">
-        <div class="panel-heading">{{title}}</div>
-        <div class="panel-body">{{description}}</div>
+        <div style="display: none;" class="team">{{teamName}}</div>
+        <div class="panel-heading title">{{title}}</div>
+        <div class="panel-body description">{{description}}</div>
         <div class="panel-footer">
         {{#if closed}}
             {{CompletedDescription}}
         {{else}}
             {{#if finished}}
-                <button class="btn-info">Close</button>
+                <center><button class="btn-info" id="Close">Close</button></center>
             {{else}}
-                <button class="btn-success">Finish!</button>
+                <textarea id="Description" class="form-control" cols="20" rows="2" placeholder="Description"></textarea>
+                <br>
+                <center><button class="btn-success" id="Finish">Finish!</button></center>
             {{/if}}
         {{/if}}
         </div>

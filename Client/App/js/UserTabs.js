@@ -53,12 +53,15 @@ if (Meteor.isClient) {
             }
         },
         'click #Create': function () {
-            if (Session.get('menu_selected') == 1) {
-                Session.set("is_creating_new_team", true);
-                Session.set('team_selected', '__Create');
-            }
-            else {
-                Session.set('is_creating_new_task', true);
+            console.log (Meteor.userId());
+            if (Meteor.userId()) {
+                if (Session.get('menu_selected') == 1) {
+                    Session.set("is_creating_new_team", true);
+                    Session.set('team_selected', '__Create');
+                }
+                else if (Teams.find().count()) {
+                        Session.set('is_creating_new_task', true);
+                }
             }
         }
     });

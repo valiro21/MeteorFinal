@@ -75,4 +75,36 @@ if (Meteor.isClient) {
             Session.set('sort', 4);
         }
     });
+
+    Template.TeamManagement.helpers ({
+        team_selected: function () {
+            return Session.get('team_selected_dropdown') != '';
+        }
+    });
+
+    Template.TeamManagement.events ({
+        'click #Add': function (event) {
+            event.preventDefault();
+
+            var team = Session.get('team_selected_dropdown');
+            console.log ('Team: ', team);
+            var usersList = Session.get('users_selected');
+            for (var i = 0; i < usersList.length; i++) {
+                if (usersList[i] == null)
+                    continue;
+                var email = Meteor.users.findOne({username: usersList[i].username});
+
+                if (!(email == null || email == undefined)) {
+                    email = email.emails[0].address;
+                    Meteor.call('add_user_by_email_to_team', {team: team, email: email});
+                }
+                else {
+                    if (outsideEmails.find({address: usersList[i].username}).count()) {
+                        Meteor.call('add_user_by_email_to_team', {team: team, email: usersList[i].username});
+                    }
+                }
+            }
+
+        }
+    })
 }

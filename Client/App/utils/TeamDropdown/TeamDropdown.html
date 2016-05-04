@@ -1,0 +1,11 @@
+<template name="TeamDropdown">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{get_selected_team}}
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            {{#each get_teams}}
+                <li id="{{name}}" class="dropdown-team-item"><a>{{name}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

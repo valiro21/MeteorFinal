@@ -7,6 +7,7 @@
             {{/each}}
         </div>
     {{else}}
+            {{> TeamManagement}}
     {{/if}}
 
 </template>
@@ -19,4 +20,13 @@
         <button id="Closed" class="btn btn-info">Closed</button>
         <button id="Failed" class="btn btn-danger">Failed</button>
     </div>
+</template>
+
+<template name="TeamManagement">
+    {{> TeamDropdown}}
+    {{#if team_selected}}
+        {{> UserPicker email_enabled=true}}
+    {{/if}}
+
+    <button class="btn btn-default" id="Add">Add</button>
 </template>

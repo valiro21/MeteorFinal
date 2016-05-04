@@ -145,5 +145,8 @@ Meteor.methods({
         }
 
         Tasks.update ({title: o.title, teamName: o.team}, {$set: {closed: true}});
+    },
+    "userExists": function(username){
+        return !!Meteor.users.findOne({username: username});
     }
 });

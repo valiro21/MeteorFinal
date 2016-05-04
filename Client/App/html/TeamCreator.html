@@ -5,7 +5,7 @@
         </div>
     </form>
 
-    {{> UserPicker}}
+    {{> UserPicker email_enabled=true}}
 
     <form role="form" style="margin-left: 15px;" id="SubmitForm">
         <div class="form-group form-inline">
@@ -14,34 +14,4 @@
         </div>
     </form>
 
-</template>
-
-<template name="UserPicker">
-    <div class="panel" style="width: 305px; margin-top: 25px; margin-left: 15px">
-        <div class="panel-heading" style="padding-bottom: 0px;">
-            <form class="form-inline inline" id="AddForm">
-                <div class="form-control">
-                    <span class="glyphicon glyphicon-search"></span>
-                    <input id="user_picker_search" type="text" autocomplete="off" style="border: none;" placeholder="Username or email to add">
-                </div>
-            </form>
-            {{#if is_disabled}}
-            {{else}}
-                <button id="Add" class="btn btn-default inline">Add</button>
-            {{/if}}
-        </div>
-
-        <div id="user_picker_users_holder" class="panel-body" style="height: 220px">
-            {{#each get_users}}
-            <div id="{{username}}" class="container-fluid user inline" style="margin-left: 0px;">
-                   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" class="img-circle user-image inline"/>
-                    <p class="inline" style="margin-left: 10px; margin-bottom: 2px;">{{username}}</p>
-                </div>
-                {{#if is_selected username}}
-                    <span class="glyphicon glyphicon-ok-circle"></span>
-                {{/if}}
-                <hr style="margin-top: 5px; margin-bottom: 5px;">
-            {{/each}}
-        </div>
-    </div>
 </template>

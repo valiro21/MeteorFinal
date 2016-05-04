@@ -1,19 +1,11 @@
 <template name="TaskCreator">
     <form role="form" class="form-inline container-fluid" style="margin-left: 15px; margin-top: 20px" onsubmit="null">
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{get_selected_team}}
-                <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                {{#each get_teams}}
-                    <li id="{{name}}" class="dropdown-team-item"><a>{{name}}</a></li>
-                {{/each}}
-            </ul>
-        </div>
+        {{> TeamDropdown}}
 
         <div class="form-group ">
             <br>
             <br>
-            <input id="Name" class="form-control" type="text" placeholder="Title">
+            <input id="Title" class="form-control" type="text" placeholder="Title">
             <br>
             <br>
             <textarea id="Description" class="form-control" cols="60" rows="8" placeholder="Description"></textarea>
@@ -23,7 +15,7 @@
         </div>
     </form>
 
-    {{> UserAssigner}}
+    {{> UserPicker email_enabled=false}}
 
     <form role="form" style="margin-left: 15px;" id="SubmitForm">
         <div class="form-group form-inline">
@@ -33,28 +25,3 @@
     </form>
 </template>
 
-<template name="UserAssigner">
-    <div class="panel" style="width: 305px; margin-top: 25px; margin-left: 15px">
-        <div class="panel-heading" style="padding-bottom: 0px;">
-            <form class="form-inline inline" id="AddForm">
-                <div class="form-control">
-                    <span class="glyphicon glyphicon-search"></span>
-                    <input id="user_picker_search" type="text" autocomplete="off" style="border: none;" placeholder="Username or email to add">
-                </div>
-            </form>
-        </div>
-
-        <div id="user_picker_users_holder" class="panel-body" style="height: 220px">
-            {{#each get_users}}
-                <div id="{{username}}" class="container-fluid user inline" style="margin-left: 0px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" class="img-circle user-image inline"/>
-                    <p class="inline" style="margin-left: 10px; margin-bottom: 2px;">{{username}}</p>
-                </div>
-                {{#if is_selected username}}
-                    <span class="glyphicon glyphicon-ok-circle"></span>
-                {{/if}}
-                <hr style="margin-top: 5px; margin-bottom: 5px;">
-            {{/each}}
-        </div>
-    </div>
-</template>
